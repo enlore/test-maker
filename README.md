@@ -9,4 +9,5 @@ dirty cloning.
 
 Assuming you have node and npm installed:
 
-    git clone http://github.com/enlore/express-bs-skele.git; mv express-bs-skele app; cd app; npm install;
+    git clone http://github.com/enlore/express-bs-skele;\
+    mv express-bs-skele app; cd app; npm install;
