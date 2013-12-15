@@ -1,0 +1,50 @@
+!!!5
+//if lt IE 7
+  html.no-js.lt-ie9.lt-ie8.lt-ie7
+//if IE 7
+  html.no-js.lt-ie9.lt-ie8
+//if IE 8
+  html.no-js.lt-ie9
+//if gt IE 8
+  html
+head
+  meta(charset="utf-8")
+  meta(http-equiv="X-UA-Compatible", content="IE=edge,chrome=1")
+  title.
+    H5BP Jade Style - Now With More BS!
+  meta(name="description", content="")
+  meta(name="viewport", content="width=device-width")
+
+  link(rel="stylesheet", href="/css/bootstrap.min.css")
+  style.
+    body {
+      padding-top: 50px;
+      padding-bottom: 20px;
+    }
+  link(rel="stylesheet", href="")
+  link(rel="stylesheet", href="/css/main.css")
+
+  script(src="/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js")
+
+body
+  //if lt IE 7
+    p.chromeframe.
+      You are using a seriously outdated browser.  Please, please
+      <a href="http://browsehapp.com">upgrade your browser</a> or
+      <a href="">activate Google Chrome Frame</a> to significantly
+      improve your browsing experience (and make the lives of developers
+      like me a ton easier).
+  block body
+
+  script(src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js")
+  script.
+    window.jQuery || document.write('<script src="/js/vendor/jquery-1.10.1.min.js"><\/script>')
+  script(src="/js/vendor/bootstrap.min.js")
+  script(src="/js/main.js")
+
+  script.
+    var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src='//www.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
+
