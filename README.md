@@ -2,7 +2,7 @@ App Skeleton
 ============
 ## Using BS, Jade, and Less and built for Express
 
-But Nick, express comes with it's own app skel generator!
+_But Nick, express comes with it's own app skel generator!_
 
 I know, but it doesn't install Bootstrap! So I put this together for quick and
 dirty cloning.
