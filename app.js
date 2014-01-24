@@ -34,10 +34,40 @@ var less_opts = {
    sourceMap        : true,
 }
 
+function getMongoURL() {
+    var mongoCreds = {}
+
+    if (process.env.VCAP_SERVICES) {
+        console.log('~~~~~~~~> %s', process.env.VCAP_SERVICES)
+        var env = JSON.parse(process.env.VCAP_SERVICES)
+        mongoCreds  = env['mongodb-2.4.2'][0]['credentials']
+    } else {
+        mongoCreds = {
+            hostname: 'localhost', 
+            port: 27017,
+            username: '',
+            password: '',
+            name: '',
+            db: 'test-maker'
+        }
+    }
+
+    // mongoCreads has a uname and pass
+    if (mongoCreds.username && mongoCreds.password) {
+        return 'mongodb://' + mongoCreds.username + ':' + mongoCreds.password 
+        + '@' + mongoCreds.hostname + ':' + mongoCreds.port + '/' + mongoCreds.db
+    } else {
+        return 'mongodb://' + mongoCreds.hostname + ':' + mongoCreds.port + '/' + mongoCreds.db
+    } 
+}
+
+console.log(getMongoURL())
+mongoose.connect(getMongoURL())
+
 // dev config
 if ('development' == app.get('env')) {
   app.use(express.errorHandler())
-  mongoose.connect('mongodb://localhost/questions')
+  app.locals.pretty = true
 }
 
 // pro config
@@ -61,6 +91,7 @@ app.post('/test/:test_id/questions/:question_id/edit', routes.edit_question)
 
 app.get('/test/new', routes.new_test)
 app.post('/test/new', routes.new_test)
+
 
 http.createServer(app).listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'))
