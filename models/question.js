@@ -5,4 +5,5 @@ var mongoose    = require('mongoose')
         answers: Array
     })
 
-module.exports = mongoose.model('Question', questionSchema)
+exports.questionSchema = questionSchema
+exports.Question = mongoose.model('Question', questionSchema)

@@ -2,7 +2,8 @@ extends layout/base
 block body
   .container
     .row
-      form(action="/question/new", method="post")
+      h2 New question for test: #{test.title}
+      form(action="/test/#{test._id}/questions/new", method="post")
         .form-group
           label(for="question") Question
           input.form-control(type="text", name="question")

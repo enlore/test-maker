@@ -2,12 +2,22 @@ extends layout/base
 block body
   .container
     .row
-      h1.col-sm-12 herro
-    -if (questions)
-      -each question in questions
-        .row
-          .col-sm-12
-            h2= question.question
-            ol.answer-set
-              -each answer in question.answers
-                li= answer 
+    -if (!tests)
+      h1 No tests! <a href="/test/new">Add one!</a>
+
+    -if (tests)
+      -each test in tests
+        h1= test.title
+        a(href="/test/#{test._id}/questions/new") Add Question
+        -if (test.questions.length > 0)
+          ol
+            -each question in test.questions
+              .row
+                li
+                  .col-sm-12
+                    h2= question.question
+                    ol.answer-set
+                      -each answer in question.answers
+                        li= answer 
+        -else
+          h3 No questions. <a href="/test/#{test._id}/questions/new">Add some!</a>
