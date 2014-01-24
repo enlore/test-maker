@@ -2,10 +2,10 @@ extends layout/base
 block body
   .container
     .row
-    -if (!tests)
+    -if (tests.length == 0)
       h1 No tests! <a href="/test/new">Add one!</a>
 
-    -if (tests)
+    -if (tests.length > 0)
       -each test in tests
         h1= test.title
         a(href="/test/#{test._id}/questions/new") Add Question
