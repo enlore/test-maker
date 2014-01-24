@@ -16,6 +16,7 @@ block body
                 li
                   .col-sm-12
                     h2= question.question
+                    a(href="/test/#{test._id}/questions/#{question._id}/edit") Edit question
                     ol.answer-set
                       -each answer in question.answers
                         li= answer 

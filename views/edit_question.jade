@@ -1,0 +1,29 @@
+extends layout/base
+block body
+  .container
+    .row
+      h2 New question for test: #{test.title}
+      form(action="/test/#{test._id}/questions/#{question._id}/edit", method="post")
+        .form-group
+          label(for="question") Question
+          input.form-control(type="text", name="question", value="#{question.question}")
+
+        .form-group
+          label(for="answer_1") Answer 1
+          input.form-control(type="text", name="answer_1", value="#{question.answers[0]}")
+
+        .form-group
+          label(for="answer_2") Answer 2
+          input.form-control(type="text", name="answer_2", value="#{question.answers[1]}")
+
+        .form-group
+          label(for="answer_3") Answer 3
+          input.form-control(type="text", name="answer_3", value="#{question.answers[2]}")
+
+        .form-group
+          label(for="answer_4") Answer 4
+          input.form-control(type="text", name="answer_4", value="#{question.answers[3]}")
+
+        .form-group
+          input(type="submit")
+

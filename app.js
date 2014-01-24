@@ -56,6 +56,9 @@ app.get('/', routes.index)
 app.get('/test/:id/questions/new', routes.new_question)
 app.post('/test/:id/questions/new', routes.new_question)
 
+app.get('/test/:test_id/questions/:question_id/edit', routes.edit_question)
+app.post('/test/:test_id/questions/:question_id/edit', routes.edit_question)
+
 app.get('/test/new', routes.new_test)
 app.post('/test/new', routes.new_test)
 
