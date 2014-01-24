@@ -2,6 +2,7 @@ var express     = require('express')
     , routes    = require('./routes')
     , http      = require('http')
     , path      = require('path')
+    , mongoose  = require('mongoose')
 
 var app = express()
 
@@ -36,6 +37,7 @@ var less_opts = {
 // dev config
 if ('development' == app.get('env')) {
   app.use(express.errorHandler())
+  mongoose.connect('mongodb://localhost/questions')
 }
 
 // pro config
@@ -51,6 +53,8 @@ app.use(require('less-middleware')(less_opts))
 app.use(express.static(path.join(__dirname, 'static')))
 
 app.get('/', routes.index)
+app.get('/question/new', routes.new_question)
+app.post('/question/new', routes.new_question)
 
 http.createServer(app).listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'))
