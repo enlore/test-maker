@@ -40,7 +40,8 @@ function getMongoURL() {
     if (process.env.VCAP_SERVICES) {
         console.log('~~~~~~~~> %s', process.env.VCAP_SERVICES)
         var env = JSON.parse(process.env.VCAP_SERVICES)
-        mongoCreds  = env['mongodb-2.4.2'][0]['credentials']
+        mongoCreds  = env['mongodb2-2.4.8'][0]['credentials']
+        console.log('~~~~~~~~> %s', mongoCreds)
     } else {
         mongoCreds = {
             hostname: 'localhost', 
