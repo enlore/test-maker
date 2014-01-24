@@ -3,3 +3,11 @@ block body
   .container
     .row
       h1.col-sm-12 herro
+    -if (questions)
+      -each question in questions
+        .row
+          .col-sm-12
+            h2= question.question
+            ol.answer-set
+              -each answer in question.answers
+                li= answer 

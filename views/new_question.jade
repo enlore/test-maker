@@ -1,0 +1,27 @@
+extends layout/base
+block body
+  .container
+    .row
+      form(action="/question/new", method="post")
+        .form-group
+          label(for="question") Question
+          input.form-control(type="text", name="question")
+
+        .form-group
+          label(for="answer_1") Answer 1
+          input.form-control(type="text", name="answer_1")
+
+        .form-group
+          label(for="answer_2") Answer 2
+          input.form-control(type="text", name="answer_2")
+
+        .form-group
+          label(for="answer_3") Answer 3
+          input.form-control(type="text", name="answer_3")
+
+        .form-group
+          label(for="answer_4") Answer 4
+          input.form-control(type="text", name="answer_4")
+
+        .form-group
+          input(type="submit")
